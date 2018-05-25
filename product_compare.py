@@ -1,9 +1,9 @@
-
-
+from selenium import webdriver
 from compare_page import ProductComparePage
 from compare_result_page import CompareResultPage
+from dict_sort import DictSort
 from store_result import StoreResult
-from selenium import webdriver
+
 
 RESULT_FILE = "./compare_result.csv"
 all_throughput = {}
@@ -15,6 +15,7 @@ def sort_key(value):
     if "Mbps" in value[1]:
         return float(value[1].split()[0]) * 1000 * 1000
     return 0
+
 
 if __name__ == '__main__':
     throughput_one_page = {}
@@ -41,6 +42,5 @@ if __name__ == '__main__':
         throughput_one_page = result_page.get_firewall_throughput()
         driver.quit()
         all_throughput = dict(all_throughput, **throughput_one_page)
-    result_list = sorted(all_throughput.items(), key=sort_key)
-    store = StoreResult("./compare_result.csv")
-    store.write_to_csv(result_list)
+    result_list = DictSort(all_throughput).do_sort("by_throughput")
+    StoreResult("./compare_result.csv").write_to_csv(result_list)

@@ -32,10 +32,10 @@ if __name__ == '__main__':
         driver = webdriver.Firefox()
         comp_page = ProductComparePage(driver)
         comp_page.select_product_in_list1(products[i])
-        if i+1 < len(products):
-            comp_page.select_product_in_list2(products[i+1])
-        if i+2 < len(products):
-            comp_page.select_product_in_list3(products[i+2])
+        if i + 1 < len(products):
+            comp_page.select_product_in_list2(products[i + 1])
+        if i + 2 < len(products):
+            comp_page.select_product_in_list3(products[i + 2])
 
         comp_page.click_compare()
         result_page = CompareResultPage(driver)

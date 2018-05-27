@@ -1,4 +1,4 @@
-
+#-*- coding:utf-8 -*-
 class DictSort:
     def __init__(self, dict):
         self.mydict = dict

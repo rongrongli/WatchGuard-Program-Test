@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from selenium import webdriver
 from compare_page import ProductComparePage
 from compare_result_page import CompareResultPage
@@ -7,15 +8,6 @@ from store_result import StoreResult
 
 RESULT_FILE = "./compare_result.csv"
 all_throughput = {}
-
-
-def sort_key(value):
-    if "Gbps" in value[1]:
-        return float(value[1].split()[0]) * 1000 * 1000 * 1000
-    if "Mbps" in value[1]:
-        return float(value[1].split()[0]) * 1000 * 1000
-    return 0
-
 
 if __name__ == '__main__':
     throughput_one_page = {}

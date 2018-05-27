@@ -41,15 +41,17 @@ class ProductComparePage(BasePage):
 
     # click compare appliances button
     def click_compare(self):
-        self.driver.find_element_by_css_selector(self.compare_button_loc).click()
+        self.driver.find_element_by_css_selector(
+            self.compare_button_loc).click()
         return self.driver.current_url
 
     # get all products of the given series and store into list
     def get_product_list(self):
         for s in self.series_list:
-            select1 = self.driver.find_element_by_css_selector(self.product_select1_loc)
-            options = select1.find_elements_by_css_selector('optgroup[label="'+s+ '"]>option')
+            select1 = self.driver.find_element_by_css_selector(
+                self.product_select1_loc)
+            options = select1.find_elements_by_css_selector(
+                'optgroup[label="' + s + '"]>option')
             for option in options:
                 self.product_list.append(option.text)
         return self.product_list
-

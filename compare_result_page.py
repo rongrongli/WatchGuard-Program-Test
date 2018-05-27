@@ -8,9 +8,11 @@ class CompareResultPage(BasePage):
 
     # get firewall throughput data of product on current web page
     def get_firewall_throughput(self):
-        model_eles = self.driver.find_elements_by_css_selector(self.product_model_loc)
+        model_eles = self.driver.find_elements_by_css_selector(
+            self.product_model_loc)
         model_name = []
-        through_put_eles = self.driver.find_elements_by_css_selector(self.product_throughput_loc)
+        through_put_eles = self.driver.find_elements_by_css_selector(
+            self.product_throughput_loc)
         through_put_data = []
         # store product model name into list
         for m in model_eles:
